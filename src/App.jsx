@@ -27,13 +27,27 @@ function App() {
     setName(val);
   }
 
+  function handleClickSubmitBtn (){
+    console.log("handleClickSubmitBtn(): ");
+
+    // retrieve the button that was clicked
+    let btn = event.target;
+    // make the background of the button black once it's clicked
+    btn.style.backgroundColor = "black";
+
+    // turn the background back white after 0.05 seconds
+    setTimeout(() => {
+      btn.style.backgroundColor = "white";
+    }, 50)
+  }
+
   return (
     <>
       <div className="container">
         <h1>Hello {name} </h1>
         {/* onChange is triggered every time the value of the input changes */}
         <input onChange={handleChange} type="text" placeholder="What's your name?" value={name}/>
-        <button>Submit</button>
+        <button onClick={handleClickSubmitBtn}>Submit</button>
       </div>
     </>
   );
