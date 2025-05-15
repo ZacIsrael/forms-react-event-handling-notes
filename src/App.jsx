@@ -32,7 +32,7 @@ function App() {
       <div className="container">
         <h1>Hello {name} </h1>
         {/* onChange is triggered every time the value of the input changes */}
-        <input onChange={handleChange} type="text" placeholder="What's your name?" />
+        <input onChange={handleChange} type="text" placeholder="What's your name?" value={name}/>
         <button>Submit</button>
       </div>
     </>
