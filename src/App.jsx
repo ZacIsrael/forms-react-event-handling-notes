@@ -8,8 +8,11 @@ function App() {
 
   const [count, setCount] = useState(0);
 
-  // keeps track of the state of the name which will be updated as the user makes changes in the input element below
+  // keeps track of the state of the name (what the user types into the input HTML element below)
   const [name, setName] = useState("");
+
+  // keeps track of the text stored inside of the h1 tag. Will be updated once the user clicks the submit button
+  const [headingText, setHeadingText] = useState("");
 
   function handleChange(event){
 
@@ -38,13 +41,16 @@ function App() {
     // turn the background back white after 0.05 seconds
     setTimeout(() => {
       btn.style.backgroundColor = "white";
-    }, 50)
+    }, 50);
+
+    // updates the headingText with name that the user typed in to the input HTML element
+    setHeadingText(name);
   }
 
   return (
     <>
       <div className="container">
-        <h1>Hello {name} </h1>
+        <h1>Hello {headingText} </h1>
         {/* onChange is triggered every time the value of the input changes */}
         <input onChange={handleChange} type="text" placeholder="What's your name?" value={name}/>
         <button onClick={handleClickSubmitBtn}>Submit</button>
